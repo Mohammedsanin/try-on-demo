@@ -1,0 +1,87 @@
+:root {
+  /* ── Palette ─────────────────────────────────────── */
+  --warm-white:  #FDFBF7;
+  --warm-50:     #FAF8F4;
+  --warm-100:    #F7F5F2;
+  --ivory:       #FCFAF7;
+  --ivory-alt:   #F5F2EC;
+
+  --ink:         #121212;
+  --ink-90:      #1C1C1C;
+  --ink-70:      #444444;
+  --ink-40:      #777777;
+  --ink-20:      #CCCCCC;
+
+  --gold:        #B58A3C;
+  --gold-bright: #D4AF37;
+  --gold-soft:   rgba(181, 138, 60, 0.08);
+  --gold-mid:    rgba(181, 138, 60, 0.18);
+  --gold-glow:   rgba(181, 138, 60, 0.35);
+
+  --stone:       #7C766D;
+  --stone-faint: rgba(124, 118, 109, 0.12);
+  --sage:        #6B7D6A;
+  --sage-soft:   rgba(107, 125, 106, 0.08);
+
+  /* ── Glass surfaces ──────────────────────────────── */
+  --glass-light:   rgba(253, 251, 247, 0.65);
+  --glass-medium:  rgba(253, 251, 247, 0.78);
+  --glass-strong:  rgba(253, 251, 247, 0.90);
+  --glass-border:  rgba(255, 255, 255, 0.65);
+  --glass-divider: rgba(18, 18, 18, 0.06);
+  --blur-sm:  blur(16px) saturate(140%);
+  --blur-md:  blur(28px) saturate(160%);
+  --blur-lg:  blur(40px) saturate(180%);
+
+  /* ── Type ────────────────────────────────────────── */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-caption: 0.75rem;
+  --text-body:    0.9375rem;
+  --text-lead:    1.125rem;
+  --text-h2:      2rem;
+
+  /* ── Radii ───────────────────────────────────────── */
+  --r-xs:   6px;
+  --r-sm:   10px;
+  --r-md:   16px;
+  --r-lg:   24px;
+  --r-xl:   32px;
+  --r-pill: 999px;
+
+  /* ── Shadows ─────────────────────────────────────── */
+  --shadow-xs:   0 1px 2px rgba(18,18,18,0.03);
+  --shadow-sm:   0 4px 12px rgba(18,18,18,0.04);
+  --shadow-md:   0 12px 32px rgba(18,18,18,0.06);
+  --shadow-lg:   0 24px 64px rgba(18,18,18,0.08);
+  --shadow-ambient: 0 16px 48px rgba(18,18,18,0.05);
+  --shadow-gold: 0 0 0 4px rgba(181,138,60,0.15);
+  --shadow-premium: 0 30px 70px rgba(18,18,18,0.08);
+
+  /* ── Motion ──────────────────────────────────────── */
+  --spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast:  180ms;
+  --dur-mid:   340ms;
+  --dur-slow:  600ms;
+
+  /* Legacy token aliases (for older component references) */
+  --duration-quiet: 340ms;
+  --duration-signature: 700ms;
+  --porcelain:      #FAF8F4;
+  --porcelain-dim:  #F7F5F2;
+  --brass:          #B58A3C;
+  --brass-soft:     rgba(181, 138, 60, 0.12);
+  --border-hairline: 1px solid rgba(18,18,18,0.05);
+  --border-brass: 1px solid rgba(181,138,60,0.25);
+  --shadow-surface: 0 2px 8px rgba(18,18,18,0.04);
+  --text-overline: 0.75rem;
+
+  /* ── Layout ──────────────────────────────────────── */
+  --header-h:  64px;
+  --drawer-w:  260px;
+  --panel-w:   300px;
+}
+

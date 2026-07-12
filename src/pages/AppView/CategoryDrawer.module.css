@@ -1,0 +1,229 @@
+.drawer {
+  position: absolute;
+  top: 6.25rem;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  width: var(--drawer-w);
+  background: rgba(253, 251, 247, 0.75);
+  backdrop-filter: blur(28px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  z-index: 90;
+  transition: transform var(--dur-slow) var(--spring);
+  transform: translateX(0);
+}
+
+.collapsed {
+  transform: translateX(calc(-100% - 2.5rem));
+}
+
+.collapsedTab {
+  position: absolute;
+  top: 6.25rem;
+  left: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  cursor: pointer;
+  z-index: 91;
+  pointer-events: auto;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.collapsedTab:hover {
+  transform: scale(1.08);
+  background-color: #fff;
+  color: var(--gold);
+}
+
+.drawerHeader {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--glass-divider);
+}
+
+.drawerLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.collapseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--stone);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.collapseBtn:hover {
+  background-color: var(--stone-faint);
+  color: var(--ink);
+}
+
+.nav {
+  flex: 1;
+  padding: 1.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.catGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.catBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--r-sm);
+  color: var(--ink-70);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.catBtn:hover {
+  background-color: rgba(18, 18, 18, 0.03);
+  color: var(--ink);
+}
+
+.catActive {
+  background-color: var(--gold-soft);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* Sliding active dot */
+.activeDot {
+  position: absolute;
+  left: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--gold);
+}
+
+.catIcon {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--ink-40);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.catIconActive {
+  color: var(--gold);
+}
+
+.catLabel {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  flex: 1;
+  text-align: left;
+}
+
+.chevron {
+  color: var(--ink-40);
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--gold);
+}
+
+/* Sub categories list */
+.subList {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  overflow: hidden;
+  transition: max-height var(--dur-mid) var(--ease-out), opacity var(--dur-mid) var(--ease-out);
+}
+
+.subBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink-70);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.subBtn:hover {
+  color: var(--ink);
+}
+
+.subActive {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.activeSubLine {
+  position: absolute;
+  left: -12px;
+  width: 2px;
+  height: 12px;
+  background-color: var(--gold);
+}
+
+.drawerFooter {
+  padding: 1.5rem;
+  border-top: 1px solid var(--glass-divider);
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerName {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+}
+
+.footerSub {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+}

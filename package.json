@@ -1,0 +1,51 @@
+{
+  "name": "tryon-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "tsc --noEmit && vite build && electron-builder --win --x64",
+    "build:web": "tsc --noEmit && vite build",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/inter": "^5.2.8",
+    "@mediapipe/tasks-vision": "latest",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0",
+    "three": "^0.167.1"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "latest",
+    "@vitejs/plugin-react": "^6.0.2",
+    "concurrently": "latest",
+    "electron": "^42.4.1",
+    "electron-builder": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "wait-on": "latest"
+  },
+  "build": {
+    "appId": "studio.tryon.desktop",
+    "productName": "TryOn",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json",
+      "*.glb"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "asarUnpack": [
+      "*.glb"
+    ]
+  }
+}

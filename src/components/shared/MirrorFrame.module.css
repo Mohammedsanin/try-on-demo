@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mirrorShell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory-alt) 100%);
+  border: 1px solid var(--gold);
+  padding: 10px; /* 10px inset gap representing thick luxury frame border */
+  box-shadow: var(--shadow-premium);
+  overflow: hidden;
+  transition: border-color var(--dur-mid) var(--ease-out);
+}
+
+.mirrorFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  overflow: hidden;
+  box-shadow: inset 0 0 50px rgba(181, 138, 60, 0.25);
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  opacity: 1;
+  transition: opacity var(--dur-mid) var(--ease-out);
+}
+
+.fadeChildren {
+  opacity: 0.15;
+}
+
+/* state = error */
+.error {
+  border-color: var(--stone);
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--porcelain-dim);
+}
+
+.errorTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.errorCopy {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--stone);
+  max-width: 20rem;
+  line-height: 1.5;
+}
+
+/* state = calibrating - breathe animation */
+.calibrating {
+  animation: frame-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes frame-breathe {
+  0%, 100% {
+    border-color: var(--gold);
+    box-shadow: 0 0 25px rgba(181, 138, 60, 0.4);
+  }
+  50% {
+    border-color: rgba(181, 138, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(181, 138, 60, 0.08);
+  }
+}
+
+/* garment selection change - light sweep */
+.mirrorShell::after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  inset: -80%;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.4) 48%,
+    var(--gold-bright) 50%,
+    rgba(255, 255, 255, 0.4) 52%,
+    transparent 58%
+  );
+  transform: translateX(-70%);
+  opacity: 0;
+}
+
+.changing::after {
+  animation: mirror-sweep var(--duration-signature) var(--ease-out);
+}
+
+@keyframes mirror-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-70%);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(70%);
+  }
+}
+
+/* caption */
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  color: var(--stone);
+  margin-top: 1rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}

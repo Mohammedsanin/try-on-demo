@@ -1,0 +1,61 @@
+.footer {
+  min-height: 15.625rem;
+  padding: 5rem 5vw 4rem;
+  background-color: var(--ink);
+  color: var(--ink-20);
+  border-top: 1px solid var(--glass-divider);
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.copy {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-40);
+}
+
+.email {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--gold);
+  border-bottom: 1.5px solid rgba(176,125,58,0.2);
+  padding-bottom: 0.3125rem;
+  transition: all var(--dur-fast) var(--ease-out);
+  text-transform: lowercase;
+}
+
+.email:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+}

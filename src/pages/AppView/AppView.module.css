@@ -1,0 +1,56 @@
+.shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+/* Immersive Vignette */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 40%,
+    rgba(10, 10, 10, 0.4) 75%,
+    rgba(5, 5, 5, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Ambient Studio Light Reflection overlay */
+.ambientReflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 50%,
+    rgba(181, 138, 60, 0.02) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+.body {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* Let clicks pass through to Three.js canvas */
+  z-index: 10;
+}
+
+/* Ensure children (drawer, header, panel) receive pointer events */
+.body > * {
+  pointer-events: auto;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: #0d0d0d;
+}

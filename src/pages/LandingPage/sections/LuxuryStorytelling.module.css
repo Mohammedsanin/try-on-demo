@@ -1,0 +1,157 @@
+.section {
+  padding: 10rem 6vw;
+  background-color: var(--warm-white);
+  width: 100%;
+  border-top: var(--border-hairline);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 8vw;
+  align-items: center;
+}
+
+.left {
+  max-width: 38rem;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-signature) var(--ease-out),
+              transform var(--duration-signature) var(--ease-out);
+}
+
+.revealText {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.paragraph {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--ink-70);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--gold-mid);
+  margin-bottom: 2.5rem;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* Masked Image Reveal */
+.right {
+  display: flex;
+  justify-content: center;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 0.8;
+  background-color: var(--warm-50);
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0); /* starts fully hidden from bottom */
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revealImage {
+  clip-path: inset(0% 0 0 0); /* slides mask fully open */
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(181, 138, 60, 0.08) 0%, transparent 60%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.editorialGraphic {
+  width: 80%;
+  height: 80%;
+  border: 1px solid rgba(181, 138, 60, 0.15);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.editorialPattern {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  border-left-color: transparent;
+  animation: spin 16s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.editorialText {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 6rem 1.5rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .imageFrame {
+    aspect-ratio: 1.2;
+  }
+}

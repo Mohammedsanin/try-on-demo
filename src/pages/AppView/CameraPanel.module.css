@@ -1,0 +1,293 @@
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+}
+
+.stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+}
+
+/* Live camera video — visible, mirrored */
+.camera {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Three.js WebGL canvas — transparent overlay */
+.viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  /* Idle breathing motion */
+  animation: viewport-breathe 12s ease-in-out infinite alternate;
+}
+
+@keyframes viewport-breathe {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.015); }
+}
+
+/* Telemetry Pills Overlay */
+.telemetryPills {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.telemetryPill {
+  background: rgba(253, 251, 247, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-pill);
+  padding: 0.35rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.telemetryLabel {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--stone);
+}
+
+.telemetryValue {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+/* ── Premium Idle / Fallback Screen ─────────────────── */
+.fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(181,138,60,0.06) 0%, transparent 60%),
+              linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Animated mirror ring */
+.mirrorRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: min(45vw, 280px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(181, 138, 60, 0.2);
+  animation: ring-pulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.mirrorRingInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: min(35vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(181, 138, 60, 0.08);
+  animation: ring-pulse-delayed 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -60%) scale(1); }
+  50%       { opacity: 0.7; transform: translate(-50%, -60%) scale(1.05); }
+}
+
+@keyframes ring-pulse-delayed {
+  0%, 100% { opacity: 0.2; transform: translate(-50%, -60%) scale(0.95); }
+  50%       { opacity: 0.5; transform: translate(-50%, -60%) scale(1.02); }
+}
+
+.fallbackContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.fallbackEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.fallbackTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.fallbackCopy {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--ink-20);
+  max-width: 24rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+/* ── Calibration guide pill ─────────────────────────── */
+.calibrationGuide {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.6rem 1.4rem;
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-pill);
+  color: rgba(255,255,255,0.9);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  animation: pill-pulse 2.4s ease-in-out infinite;
+}
+
+.calibrationGuide::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 8px var(--gold-bright);
+  animation: dot-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes pill-pulse {
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 1; }
+}
+
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Torque/Mannequin Calibration Silhouette Outline Overlay */
+.silhouetteContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.silhouetteSvg {
+  width: 52%;
+  height: 52%;
+  max-width: 320px;
+  color: rgba(136, 128, 120, 0.4);
+  transition: all var(--dur-slow) var(--ease-out);
+}
+
+.silhouetteOutline {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: rgba(181, 137, 90, 0.02);
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.silhouetteLine, .silhouetteCircle {
+  stroke: currentColor;
+  opacity: 0.6;
+}
+
+.silhouetteLabel {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: rgba(253, 251, 247, 0.85);
+  border: 1px solid var(--stone-faint);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+/* Active calibration state styles */
+.silhouetteCalibrating .silhouetteSvg {
+  color: var(--gold);
+  transform: scale(1.025);
+  filter: drop-shadow(0 0 12px rgba(181, 137, 90, 0.3));
+}
+
+.silhouetteCalibrating .silhouetteOutline {
+  fill: rgba(181, 137, 90, 0.06);
+}
+
+.silhouetteCalibrating .silhouetteLabel {
+  color: var(--gold);
+  border-color: var(--gold-mid);
+  background: rgba(253, 251, 247, 0.95);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,151 @@
+.header {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 54px;
+  /* padding-right: 8.5rem (136px) provides safe clearance for Electron titlebar window controls */
+  padding: 0 8.5rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(253, 251, 247, 0.7);
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+.logoMark {
+  line-height: 1;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+}
+
+.brandTagline {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: var(--stone);
+  letter-spacing: 0.05em;
+}
+
+.storeChip {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  border: 1px solid var(--border-brass);
+  background-color: var(--gold-soft);
+  border-radius: var(--r-pill);
+  padding: 0.2rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Status Pill */
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--stone-faint);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-pill);
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.statusLive {
+  background-color: var(--sage-soft);
+  border-color: rgba(107, 125, 106, 0.2);
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--ink-40);
+  border-radius: 50%;
+  position: relative;
+}
+
+.statusLive .pulseDot {
+  background-color: var(--sage);
+}
+
+.statusLive .pulseDot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--sage);
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.statusText {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--ink-70);
+}
+
+.statusLive .statusText {
+  color: var(--sage);
+}
+
+.fps {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--stone);
+  letter-spacing: 0.05em;
+}

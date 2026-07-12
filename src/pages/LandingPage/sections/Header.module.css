@@ -1,0 +1,204 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  /* padding-right: 10rem (160px) provides safe clearance for Electron titlebar window controls on Windows */
+  padding: 0 10rem 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur-mid) var(--ease-out),
+              border-color var(--dur-mid) var(--ease-out),
+              height var(--dur-mid) var(--ease-out);
+}
+
+.scrolled {
+  background-color: rgba(253, 251, 247, 0.85);
+  backdrop-filter: var(--blur-sm);
+  border-bottom: var(--border-hairline);
+  height: 56px;
+}
+
+.wordmark {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.wordmark:hover {
+  opacity: 0.7;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navLink {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-70);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.navLink:hover {
+  color: var(--ink);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold);
+  transition: width var(--dur-mid) var(--ease-out), left var(--dur-mid) var(--ease-out);
+}
+
+.navLink:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.demoButton {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: var(--r-pill);
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.demoButton:hover {
+  background-color: transparent;
+  color: var(--ink);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.arrow {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.demoButton:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* Mobile responsive menu button */
+.menuButton {
+  display: none;
+  width: 24px;
+  height: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menuLine {
+  display: block;
+  height: 1.5px;
+  background-color: var(--ink);
+  transition: transform var(--dur-mid) var(--ease-out), width var(--dur-mid) var(--ease-out);
+}
+
+.menuLine:first-child {
+  width: 20px;
+}
+
+.menuLine:last-child {
+  width: 14px;
+}
+
+.menuActive .menuLine:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+  width: 20px;
+}
+
+.menuActive .menuLine:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+  width: 20px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 1.5rem;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--warm-white);
+    border-left: var(--border-hairline);
+    padding: 6rem 2rem 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+    box-shadow: var(--shadow-lg);
+    transform: translateX(100%);
+    transition: transform var(--dur-mid) var(--ease-out);
+  }
+
+  .mobileOpen {
+    transform: translateX(0);
+  }
+
+  .navLink {
+    font-size: 0.875rem;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+
+  .demoButton {
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}

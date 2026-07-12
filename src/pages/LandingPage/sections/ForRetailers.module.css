@@ -1,0 +1,95 @@
+.section {
+  padding: 6.875rem 8vw;
+  background-color: var(--warm-100);
+  width: 100%;
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3.75rem;
+}
+
+.info {
+  flex: 1;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.125rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.625rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 1.625rem;
+}
+
+.copy {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--ink-70);
+  line-height: 1.7;
+  max-width: 35.625rem;
+}
+
+.statBox {
+  min-width: 16.25rem;
+  border-top: 1.5px solid var(--gold);
+  padding-top: 1.125rem;
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.statBox:hover {
+  transform: translateY(-2px);
+}
+
+.stat {
+  display: block;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 5.75rem;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.statCaption {
+  display: block;
+  font-family: var(--font-body);
+  color: var(--ink-70);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-top: 1.0625rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 5vw;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.75rem;
+  }
+
+  .statBox {
+    width: 100%;
+    min-width: 100%;
+  }
+}

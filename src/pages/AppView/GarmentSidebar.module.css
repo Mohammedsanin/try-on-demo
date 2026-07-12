@@ -1,0 +1,75 @@
+.sidebar {
+  min-width: 0;
+  background-color: var(--porcelain-dim);
+  border-left: var(--border-hairline);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.count {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--stone);
+  font-weight: 500;
+}
+
+.list {
+  border-top: var(--border-hairline);
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.625rem;
+  margin-top: 1.75rem;
+}
+
+.actionButton {
+  width: 100%;
+}
+
+.storeSlot {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.storeLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--stone);
+}
+
+.storeName {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+}

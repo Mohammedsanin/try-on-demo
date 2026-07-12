@@ -1,0 +1,48 @@
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  margin-top: -3px;
+  margin-left: -3px;
+  transition: transform 0.08s ease-out, background-color var(--dur-fast) var(--ease-out), width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out);
+}
+
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  background-color: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  margin-top: -16px;
+  margin-left: -16px;
+  transition: width var(--dur-mid) var(--spring), height var(--dur-mid) var(--spring), margin-top var(--dur-mid) var(--spring), margin-left var(--dur-mid) var(--spring), border-color var(--dur-mid) var(--ease-out), background-color var(--dur-mid) var(--ease-out);
+}
+
+/* Hover States */
+.dotHover {
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  margin-left: -2px;
+  background-color: #fff;
+}
+
+.ringHover {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  border-color: var(--gold);
+  background-color: var(--gold-soft);
+}
